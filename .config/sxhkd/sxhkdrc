@@ -19,6 +19,7 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 # lock screen
+
 super + alt + l
 	betterlockscreen --lock dimblur
 
@@ -31,6 +32,7 @@ super + shift + Print
 	scrot -s --line mode=edge ~/screen\ shots/%Y-%m-%d_%H%M$S.jpg
 
 #volume control
+
 super + XF86AudioLowerVolume
 	pactl set-sink-volume @DEFAULT_SINK@ -5%
 
@@ -41,6 +43,7 @@ super + XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 #brightness control
+
 super + XF86MonBrightnessDown
 	brillo -q -U 5
 
@@ -48,8 +51,17 @@ super + XF86MonBrightnessUp
 	brillo -q -A 5
 
 #toggle night mode
+
 super + XF86Favorites
 	pkill -USR1 redshift
+
+#external display
+
+super + XF86Display
+	~/scripts/extramonitor extra
+
+super + shift + XF86Display
+	~/scripts/extramonitor disconnect
 
 #application lounch shortcuts
 
