@@ -1,0 +1,60 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+	alacritty
+
+# program launcher
+super + @space
+	rofi -show drun
+
+#window switcher
+super + Tab
+	rofi -show window
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# lock screen
+super + alt + l
+	betterlockscreen --lock dimblur
+
+#screen shots
+
+super + Print
+	scrot ~/screen\ shots/%Y-%m-%d_%H%M$S.jpg
+
+super + shift + Print
+	scrot -s --line mode=edge ~/screen\ shots/%Y-%m-%d_%H%M$S.jpg
+
+#volume control
+super + XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+super + XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+super + XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+#brightness control
+super + XF86MonBrightnessDown
+	brillo -q -U 5
+
+super + XF86MonBrightnessUp
+	brillo -q -A 5
+
+#toggle night mode
+super + XF86Favorites
+	pkill -USR1 redshift
+
+#application lounch shortcuts
+
+super + alt + b
+	firefox
+
+super + alt + f
+	pcmanfm

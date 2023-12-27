@@ -1,0 +1,5 @@
+*foreground: rgb:e5/e5/e5
+*background: rgb:00/00/00
+
+nsxiv.foreground: #bbbbbb
+nsxiv.background: #222222
