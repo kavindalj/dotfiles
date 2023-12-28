@@ -112,8 +112,8 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4, margin = 4),
-    layout.Max(border_focus="#800000",border_width=4, margin = 4),
+    layout.Columns(border_focus_stack=["#8c4a54", "#460000"],border_on_single=True,single_border_width=4,margin_on_single=4, border_width=4, margin = 4),
+    layout.Max(border_focus="#21675e",border_width=4, margin = 4),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -139,7 +139,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.Spacer(length=10),
-                widget.CurrentLayout(),
+                #widget.CurrentLayout(),
                 widget.Spacer(length=5),
                 widget.GroupBox(),
                 widget.Prompt(),
@@ -174,13 +174,13 @@ screens = [
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
+    Click([mod], "Button1", lazy.window.bring_to_front()),
 ]
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
-bring_front_click = False
+bring_front_click = True
 floats_kept_above = True
 cursor_warp = False
 floating_layout = layout.Floating(
