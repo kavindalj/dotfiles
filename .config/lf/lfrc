@@ -65,14 +65,13 @@ map <space> open
 
 #map c $vscodium "$f"
 
-map op $pcmanfm "$PWD";
+map op $pcmanfm . &
 #map <space> $qlmanage -p "$f"
 
 map au unarchive
 
-map PS $gimp "$f"
 map VS $code .
-map IMG $nsxiv .
+map IMG $nsxiv . &
 
 # Basic Functions
 map . set hidden!
