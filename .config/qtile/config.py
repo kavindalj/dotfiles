@@ -25,7 +25,7 @@
 # SOFTWARE.
 
 from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
@@ -110,6 +110,28 @@ for i in groups:
 
         ]
     )
+
+groups.append(
+    ScratchPad(
+        'scratchpad',
+        [
+            DropDown(
+                'term',
+                'kitty -e lf',
+                width=0.9,
+                height=0.8,
+                x=0.05,
+                y=0.1,
+                opacity=1
+            ),
+        ]
+    )
+)
+
+keys.extend([
+    Key(["control"], "l", lazy.group['scratchpad'].dropdown_toggle('term')),
+])
+
 
 layouts = [
     layout.Columns(border_focus_stack=["#8c4a54", "#460000"],border_on_single=True,single_border_width=4,margin_on_single=4, border_width=4, margin = 4),
