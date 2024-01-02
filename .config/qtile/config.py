@@ -122,7 +122,7 @@ groups.append(
                 height=0.8,
                 x=0.05,
                 y=0.1,
-                opacity=1
+                opacity=1,
             ),
         ]
     )
