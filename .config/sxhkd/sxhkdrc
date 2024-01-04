@@ -55,6 +55,11 @@ super + XF86MonBrightnessUp
 super + XF86Favorites
 	pkill -USR1 redshift
 
+#run clipmenu
+
+super + v
+	clipmenu
+
 #external display
 
 super + XF86Display

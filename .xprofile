@@ -2,4 +2,5 @@ nitrogen --restore
 picom -f &
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
 redshift -l 6.927079:79.861244 &
+clipmenud &
 udiskie &
