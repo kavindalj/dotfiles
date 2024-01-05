@@ -14,10 +14,11 @@ cmd mkdir ${{
   mkdir $ans
 }}
 
+#make file
 cmd mkfile ${{
   printf "File Name: "
   read ans
-  $EDITOR $ans
+  nvim $ans
 }}
 
 # Archive bindings
@@ -50,6 +51,7 @@ map <space> open
 
 map op $pcmanfm . &
 map VS $code .
+map VM $nvim .
 map IMG $nsxiv . &
 
 map au unarchive
