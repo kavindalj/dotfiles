@@ -1,5 +1,5 @@
 nitrogen --restore
-picom -f &
+picom --animations --animation-for-open-window fly-in -b &
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
 redshift -l 6.927079:79.861244 &
 clipmenud &
