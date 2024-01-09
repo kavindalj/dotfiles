@@ -116,7 +116,7 @@ groups.append(
         'scratchpad',
         [
             DropDown(
-                'term',
+                'lffilemanager',
                 'kitty -e lf',
                 width=0.9,
                 height=0.8,
@@ -124,12 +124,35 @@ groups.append(
                 y=0.1,
                 opacity=1,
             ),
-        ]
+            DropDown(
+                'terminal',
+                'alacritty',
+                width=0.9,
+                height=0.8,
+                x=0.05,
+                y=0.1,
+                opacity=1,
+                on_focus_lost_hide=False,
+            ),
+            DropDown(
+                'chatgpt',
+                'brave --app=https://chat.openai.com &',
+                width=0.9,
+                height=0.8,
+                x=0.05,
+                y=0.1,
+                opacity=1,
+                on_focus_lost_hide=False,
+            ),
+
+       ]
     )
 )
 
 keys.extend([
-    Key(["control"], "l", lazy.group['scratchpad'].dropdown_toggle('term')),
+    Key(["mod1"], "l", lazy.group['scratchpad'].dropdown_toggle('lffilemanager')),
+    Key(["mod1"], "t", lazy.group['scratchpad'].dropdown_toggle('terminal')),
+    Key(["mod1"], "c", lazy.group['scratchpad'].dropdown_toggle('chatgpt')),
 ])
 
 
@@ -160,9 +183,9 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Spacer(length=10),
-                #widget.CurrentLayout(),
                 widget.Spacer(length=5),
+                #widget.CurrentLayout(),
+                #widget.Spacer(length=5),
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
@@ -175,6 +198,8 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
+                widget.Pomodoro(),
+                widget.Spacer(length=10),
                 widget.BatteryIcon(),
                 widget.Battery(),
                 widget.Spacer(length=10),
