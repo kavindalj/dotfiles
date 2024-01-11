@@ -3,8 +3,10 @@
 intern="eDP-1"
 extern="HDMI-2"
 
-case "$1" in
-    "disconnect") xrandr --output "$extern" --off --output "$intern" --auto ;;
-    "extra") xrandr --output "$extern" --set audio force-dvi --mode 1920x1080 --primary && xrandr --output "$intern" --auto --output "$extern" --left-of "$intern" && nitrogen --restore ;;
-    "duplicate") xrandr --output "$extern" --set audio force-dvi --mode 1920x1080 && xrandr --output "$intern" --auto --output "$extern" --same-as "$intern" ;;
+chosen=$(printf "󰶐  Disconnect\n󰍺  Extra\n󱒃  Duplicate" | rofi -dmenu -i)
+
+case "$chosen" in
+"󰶐  Disconnect") xrandr --output "$extern" --off --output "$intern" --auto && setxkbmap -option caps:swapescape && xset s on +dpms && nitrogen --restore ;;
+"󰍺  Extra") xrandr --output "$extern" --set audio force-dvi --mode 1920x1080 --primary && xrandr --output "$intern" --auto --output "$extern" --left-of "$intern" && setxkbmap -option caps:swapescape && xset s off -dpms && nitrogen --restore ;;
+"󱒃  Duplicate") xrandr --output "$extern" --set audio force-dvi --mode 1920x1080 && xrandr --output "$intern" --auto --output "$extern" --same-as "$intern" && setxkbmap -option caps:swapescape && xset s off -dpms ;;
 esac
