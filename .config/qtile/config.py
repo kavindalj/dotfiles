@@ -183,10 +183,12 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Spacer(length=5),
+                widget.Spacer(length=3),
+                widget.Image(filename='/home/kavinda/.config/qtile/archlinux-icon.svg',margin=3,),
+                #widget.Spacer(length=2),
                 #widget.CurrentLayout(),
                 #widget.Spacer(length=5),
-                widget.GroupBox(),
+                widget.GroupBox(disable_drag=True,inactive='#7c7c7c'),
                 widget.Prompt(),
                 widget.WindowName(),
                 widget.Chord(
@@ -197,18 +199,27 @@ screens = [
                 ),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
-                widget.Systray(),
-                widget.Pomodoro(),
+                widget.Systray(icon_size=18,padding=7,),
+                #widget.Pomodoro(),
                 widget.Spacer(length=10),
-                widget.BatteryIcon(),
-                widget.Battery(),
+                widget.TextBox(' ',fontsize=15),
+                widget.Spacer(length=2),
+                widget.PulseVolume(),
                 widget.Spacer(length=10),
+                widget.CPU(format='  {load_percent}%',fontsize=15),
+                widget.Memory(format='󰕯  {MemPercent}%',fontsize=15),
+                widget.Spacer(length=5),
+                widget.BatteryIcon(scale=1.1),
+                widget.Battery(format='{percent:2.0%}  {hour:d}:{min:02d}'),
+                widget.Spacer(length=10),
+                widget.TextBox('󰃰 ',fontsize=15),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.Spacer(length=10),
+                widget.Spacer(length=3),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            background="#35353570",
         ),
         # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
         # By default we handle these events delayed to already improve performance, however your system might still be struggling
@@ -234,6 +245,7 @@ floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
+        Match(wm_class="nsxiv"),  # gitk
         Match(wm_class="confirmreset"),  # gitk
         Match(wm_class="makebranch"),  # gitk
         Match(wm_class="maketag"),  # gitk
