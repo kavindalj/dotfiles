@@ -63,10 +63,7 @@ super + v
 #external display
 
 super + XF86Display
-	~/scripts/extramonitor extra
-
-super + shift + XF86Display
-	~/scripts/extramonitor disconnect
+	~/scripts/extramonitor
 
 #application lounch shortcuts
 
