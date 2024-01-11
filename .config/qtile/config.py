@@ -184,7 +184,11 @@ screens = [
         top=bar.Bar(
             [
                 widget.Spacer(length=3),
-                widget.Image(filename='/home/kavinda/.config/qtile/archlinux-icon.svg',margin=3,),
+                widget.Image(
+                    filename='/home/kavinda/.config/qtile/archlinux-icon.svg',
+                    margin=3,
+                    mouse_callbacks = {'Button1': lazy.spawn("/home/kavinda/scripts/powermenu")},
+                ),
                 #widget.Spacer(length=2),
                 #widget.CurrentLayout(),
                 #widget.Spacer(length=5),
@@ -200,6 +204,16 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(icon_size=18,padding=7,),
+                widget.Spacer(length=10),
+                widget.TextBox(
+                    '󰖩 ',fontsize=15,
+                    mouse_callbacks = {'Button1': lazy.spawn("/home/kavinda/scripts/rofi-wifi-menu.sh")},
+                               ),
+                widget.Wlan(
+                    interface='wlp3s0',
+                    format="{essid}",
+                    mouse_callbacks = {'Button1': lazy.spawn("/home/kavinda/scripts/rofi-wifi-menu.sh")},
+                ),
                 #widget.Pomodoro(),
                 widget.Spacer(length=10),
                 widget.TextBox(' ',fontsize=15),
