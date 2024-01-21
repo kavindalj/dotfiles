@@ -34,12 +34,18 @@ cmd unarchive ${{
 
 #zip
 cmd zip ${{
-  # Extract the filename from the path in variable 'f'
-  filename=$(basename "$f")
-  
-  zip_filename="${filename}.zip"
-
-  zip -r -s 2g "$zip_filename" "$filename"
+  if [ -z "$fs" ]; then
+    filename=$(basename "$f")
+    zip_filename="${filename}.zip"
+    zip -r -s 2g "$zip_filename" "$filename"
+  else
+    printf "Enter a name for the zip file : "
+    read ans
+    mkdir $ans
+    IFS="$(printf '\n\t')"; cp $fs $ans
+    zip -r -s 2g "$ans.zip" $ans
+    rm -r $ans
+  fi
 }}
 
 # Bindings
