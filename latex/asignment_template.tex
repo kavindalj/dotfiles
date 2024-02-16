@@ -1,0 +1,51 @@
+\documentclass[12pt, oneside]{report}
+\usepackage[margin=0.85in]{geometry}
+\linespread{1}
+\usepackage{xcolor}
+\usepackage[colorlinks=false, linkbordercolor=white, citebordercolor=white, 
+    filebordercolor=white, urlbordercolor=white]{hyperref}
+    
+\usepackage{graphicx}
+\graphicspath{{~/latex/images/}}
+
+\input{variables.tex}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead{}
+\fancyhead[L]{\course}
+\fancyhead[R]{\indexnum}
+\fancyfoot{}
+\fancyfoot[C]{\thepage}
+
+\usepackage{titlesec}
+\titlespacing{\chapter}{0pt}{*4}{*2.5}
+
+\titleformat{\chapter}{\normalfont\huge\bf}{\thechapter}{20pt}{\huge\bf}
+
+% definition of an environment
+\usepackage{listings}
+\definecolor{dgray}{gray}{0.35} % colour of R comments
+\definecolor{lgray}{gray}{0.95} % background colour of R-code
+
+\lstset{ % setting appearance of R-code
+language=R, % setting language R
+basicstyle=\ttfamily\small, % font and size of R-code
+backgroundcolor=\color{lgray}, % background colour of R-code
+commentstyle=\ttfamily\small\itshape\color{dgray}, % colour of R comments
+showstringspaces=false, % forbidding the highlighting of spaces
+numbers=left, % numbering on the left
+numberstyle=\ttfamily\small, % font and size of numbering
+stepnumber=1, % numbering with step 1
+firstnumber=last, % cumulative numbering of rows in consecutive uses of lstlisting environment
+breaklines=T} % automatic line breaks of code at the end of a line
+
+\begin{document}
+\input{~/latex/asignment_title_page.tex}
+\input{assignment_content.tex}
+\end{document}

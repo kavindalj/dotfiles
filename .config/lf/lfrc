@@ -38,8 +38,7 @@ cmd unarchive ${{
 cmd zip ${{
   if [ -z "$fs" ]; then
     filename=$(basename "$f")
-    zip_filename="${filename}.zip"
-    zip -r -s 2g "$zip_filename" "$filename"
+    zip -r -s 2g "$filename.zip" "$filename"
   else
     printf "Enter a name for the zip file : "
     read ans
@@ -48,6 +47,40 @@ cmd zip ${{
     zip -r -s 2g "$ans.zip" $ans
     rm -r $ans
   fi
+}}
+
+#latex assignment
+cmd assignment ${{
+controlVal=0;
+while [ "$controlVal" -eq 0 ]; do
+  printf "Enter Course Code : "
+  read ans
+  case "$ans" in
+    IS2101) course_name="IS2101 - Object Oriented Programming" ;;
+    IS2102) course_name="IS2102 - Object Oriented Programming Practicum" ;;
+    IS2103) course_name="IS2103 - Emerging IS Technologies" ;;
+    IS2104) course_name="IS2104 - Database Systems" ;;
+    IS2105) course_name="IS2105 - Database Management Systems Practicum" ;;
+    IS2106) course_name="IS2106 - System Analysis and Design" ;;
+    IS2107) course_name="IS2107 - Social and Professional Issues" ;;
+    IS2108) course_name="IS2108 - Human Computer Interaction" ;;
+    IS2109) course_name="IS2109 - Information Assurance and Security" ;;
+    IS2110) course_name="IS2110 - Software Project Initiation and Planning" ;;
+    IS2111) course_name="IS2111 - Advanced Mathematics" ;;
+    IS2112) course_name="IS2112 - Communication Skills II" ;;
+    IS-EGP-1201) course_name="IS-EGP-1201 - General English II" ;;
+    *) 
+      echo "Error: Invalid Course Code. Please enter a valid code."
+      continue ;;
+  esac
+  mkdir "$ans"
+  cd "$ans"
+  touch assignment_content.tex
+  cp ~/latex/asignment_template.tex 21CIS0113.tex
+  sed "s/course_name/$course_name/g" ~/latex/variables.tex > variables.tex
+  nvim assignment_content.tex
+  controlVal=1;
+done
 }}
 
 # Bindings
@@ -64,6 +97,8 @@ map IMG $nsxiv . &
 
 map au unarchive
 map ZP zip
+
+map ma assignment
 
 # Basic Functions
 map . set hidden!
@@ -84,5 +119,5 @@ map gS cd /home/kavinda/screen\ shots
 map gp cd /home/kavinda/Documents/projects/
 map gt cd /home/kavinda/Documents/1.temp/
 map gs cd /home/kavinda/Documents/2.SYNC/
-map gu cd /home/kavinda/Documents/3.Uni/
+map gu cd /home/kavinda/Documents/3.Uni/semester-2/
 map gv cd /run/media/kavinda/
