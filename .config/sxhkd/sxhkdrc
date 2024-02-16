@@ -72,3 +72,6 @@ super + alt + b
 
 super + alt + f
 	pcmanfm
+
+super + alt + p
+	keepassxc

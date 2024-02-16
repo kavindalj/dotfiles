@@ -144,6 +144,17 @@ groups.append(
                 opacity=1,
                 on_focus_lost_hide=False,
             ),
+            DropDown(
+                'keepassxc',
+                'keepassxc',
+                width=0.5,
+                height=0.5,
+                x=0.25,
+                y=0.1,
+                opacity=1,
+                on_focus_lost_hide=False,
+            ),
+
 
        ]
     )
@@ -153,6 +164,7 @@ keys.extend([
     Key(["mod1"], "l", lazy.group['scratchpad'].dropdown_toggle('lffilemanager')),
     Key(["mod1"], "t", lazy.group['scratchpad'].dropdown_toggle('terminal')),
     Key(["mod1"], "c", lazy.group['scratchpad'].dropdown_toggle('chatgpt')),
+    Key(["mod1"], "p", lazy.group['scratchpad'].dropdown_toggle('keepassxc')),
 ])
 
 
@@ -216,8 +228,7 @@ screens = [
                 ),
                 #widget.Pomodoro(),
                 widget.Spacer(length=10),
-                widget.TextBox(' ',fontsize=15),
-                widget.Spacer(length=2),
+                widget.PulseVolume(emoji=True, emoji_list=['󰖁 ', ' ', '󰕾 ', ' '] ,fontsize=15),
                 widget.PulseVolume(),
                 widget.Spacer(length=10),
                 widget.CPU(format='  {load_percent}%',fontsize=15),
