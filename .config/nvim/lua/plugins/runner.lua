@@ -17,6 +17,7 @@ return {
             "$dir/$fileNameWithoutExt",
           },
           c = "cd '$dir' && gcc $fileName -o $fileNameWithoutExt && '$dir/$fileNameWithoutExt'",
+          tex = "pdflatex $fileName",
         },
       })
     end,
