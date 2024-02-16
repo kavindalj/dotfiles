@@ -1,7 +1,8 @@
 nitrogen --restore
-picom --animations --animation-for-open-window zoom --experimental-backends -b &
+picom --animations --animation-for-open-window slide-up --experimental-backends -b &
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
 redshift -l 6.927079:79.861244 &
 clipmenud &
 udiskie &
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 setxkbmap -option caps:swapescape
