@@ -138,7 +138,7 @@ alias vps="ssh myvps"
 cpfvps ()
 {
  if [ "$2" = "" ]; then
-  scp myvps:"$1" /home/kavinda/Documents/Downloads
+  scp myvps:"$1" /home/kavinda/Downloads
  else
   scp myvps:"$1" "$2";
  fi
