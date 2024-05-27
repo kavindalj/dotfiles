@@ -8,3 +8,4 @@ map K zoom out
 map i recolor
 set recolor true
 map P print
+map E exec "/home/kavinda/scripts/editpdf.sh '$FILE' $PAGE"
