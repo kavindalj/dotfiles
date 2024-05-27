@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux zsh-autosuggestions zsh-syntax-highlighting web-search)
+plugins=(git sudo zsh-256color zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -154,6 +154,10 @@ cptvps ()
 }
 
 export EDITOR=nvim
+export PATH=$PATH:~/.config/emacs/bin
+
+# Enable vi mode
+bindkey -v
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
@@ -164,4 +168,6 @@ export EDITOR=nvim
 cat .nf 2> /dev/null
 setsid neofetch >| .nf
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
 alias config='/usr/bin/git --git-dir=/home/kavinda/dotfiles --work-tree=/home/kavinda'
+eval "$(atuin init zsh)"
