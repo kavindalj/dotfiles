@@ -49,6 +49,15 @@ cmd zip ${{
   fi
 }}
 
+#trash
+cmd trashing ${{
+  if [ -z "$fs" ]; then
+    trash "$f"
+  else
+    IFS="$(printf '\n\t')"; trash $fs
+  fi
+}}
+
 #latex assignment
 cmd assignment ${{
 controlVal=0;
@@ -105,7 +114,8 @@ map . set hidden!
 map p paste
 map x cut
 map y copy
-map DE delete
+map DE trashing
+map DR $trash-restore /
 map <enter> open
 map R reload
 map mf mkfile
@@ -115,7 +125,7 @@ map C clear
 # Movement
 map gd cd /home/kavinda/Documents/
 map gD cd /home/kavinda/Downloads/
-map gS cd /home/kavinda/screen\ shots
+map gS cd /home/kavinda/Pictures/Screenshots/
 map gp cd /home/kavinda/Documents/projects/
 map gt cd /home/kavinda/Documents/1.temp/
 map gs cd /home/kavinda/Documents/2.SYNC/
