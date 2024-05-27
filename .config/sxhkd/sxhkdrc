@@ -26,10 +26,10 @@ super + alt + l
 #screen shots
 
 super + Print
-	scrot ~/screen\ shots/%Y-%m-%d_%H%M$S.jpg
+	scrot ~/Pictures/Screenshots/%Y-%m-%d_%H%M$S.jpg
 
 super + shift + Print
-	scrot -s --line mode=edge ~/screen\ shots/%Y-%m-%d_%H%M$S.jpg
+	scrot -s --line mode=edge ~/Pictures/Screenshots/%Y-%m-%d_%H%M$S.jpg
 
 #volume control
 
